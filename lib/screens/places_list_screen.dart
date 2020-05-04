@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/places.dart';
 
 import '../screens/add_place_screen.dart';
+import '../screens/place_detail_screen.dart';
 
 class PlacesListScreen extends StatelessWidget {
   @override
@@ -41,7 +42,12 @@ class PlacesListScreen extends StatelessWidget {
                           ),
                           title: Text(places.items[i].title),
                           subtitle: Text(places.items[i].location.address),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              PlaceDetailScreen.routeName,
+                              arguments: places.items[i].id,
+                            );
+                          },
                         ),
                       ),
               ),

@@ -14,6 +14,10 @@ class Places with ChangeNotifier {
     return [..._items];
   }
 
+  Place findBy(String id) {
+    return _items.firstWhere((place) => place.id == id);
+  }
+
   Future<void> addPlace(
       String title, File image, PlaceLocation location) async {
     final address = await LocationHelper.getPlaceAddress(
